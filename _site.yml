@@ -1,0 +1,10 @@
+name: "my-website"
+navbar:
+  title: "Kevin Albright"
+  left:
+    - text: "Me"
+      href: index.html
+    #- text: 'Abroad'
+    #  href: abroad.html
+    - text: "Beers"
+      href: beersRMD.html
