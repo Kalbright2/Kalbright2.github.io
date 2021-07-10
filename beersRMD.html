@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -1768,7 +1769,7 @@ plot(accs$k,accs$accuracy, type = &quot;l&quot;, xlab = &quot;k&quot;)
 abline(v=accs$k[which.max(accs$accuracy)], col=&quot;red&quot;)</code></pre>
 <p><img src="beersRMD_files/figure-html/Implement%20KNN-1.png" width="960" /></p>
 <pre class="r"><code>accs$k[which.max(accs$accuracy)]</code></pre>
-<pre><code>## [1] 26</code></pre>
+<pre><code>## [1] 10</code></pre>
 <pre class="r"><code>splitPerc = .70
 trainIndices = sample(1:dim(IPA_ALE)[1],round(splitPerc * dim(IPA_ALE)[1]))
 train = IPA_ALE[trainIndices,]
@@ -1778,32 +1779,32 @@ classification = knn(IPA_ALE[,c(3,4)],IPA_ALE[,c(3,4)],IPA_ALE$Type,prob = TRUE,
 table(classification,IPA_ALE$Type)</code></pre>
 <pre><code>##               
 ## classification ALE IPA
-##            ALE 920 148
-##            IPA 100 410</code></pre>
+##            ALE 922 149
+##            IPA  98 409</code></pre>
 <pre class="r"><code>confusionMatrix(table(classification,IPA_ALE$Type))</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##               
 ## classification ALE IPA
-##            ALE 920 148
-##            IPA 100 410
+##            ALE 922 149
+##            IPA  98 409
 ##                                           
-##                Accuracy : 0.8428          
-##                  95% CI : (0.8239, 0.8605)
+##                Accuracy : 0.8435          
+##                  95% CI : (0.8246, 0.8611)
 ##     No Information Rate : 0.6464          
-##     P-Value [Acc &gt; NIR] : &lt; 2e-16         
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.6494          
+##                   Kappa : 0.6504          
 ##                                           
-##  Mcnemar&#39;s Test P-Value : 0.00284         
+##  Mcnemar&#39;s Test P-Value : 0.001466        
 ##                                           
-##             Sensitivity : 0.9020          
-##             Specificity : 0.7348          
-##          Pos Pred Value : 0.8614          
-##          Neg Pred Value : 0.8039          
+##             Sensitivity : 0.9039          
+##             Specificity : 0.7330          
+##          Pos Pred Value : 0.8609          
+##          Neg Pred Value : 0.8067          
 ##              Prevalence : 0.6464          
-##          Detection Rate : 0.5830          
-##    Detection Prevalence : 0.6768          
+##          Detection Rate : 0.5843          
+##    Detection Prevalence : 0.6787          
 ##       Balanced Accuracy : 0.8184          
 ##                                           
 ##        &#39;Positive&#39; Class : ALE             
