@@ -8,3 +8,7 @@ navbar:
       href: about.html
     - text: "Beers"
       href: beersRMD.html
+output:
+  html_document:
+    theme: flatly
+    css: style.css
