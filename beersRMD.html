@@ -248,6 +248,9 @@ $(document).ready(function () {
   <a href="index.html">Me</a>
 </li>
 <li>
+  <a href="about.html">Bio</a>
+</li>
+<li>
   <a href="beersRMD.html">Beers</a>
 </li>
       </ul>
@@ -1765,7 +1768,7 @@ plot(accs$k,accs$accuracy, type = &quot;l&quot;, xlab = &quot;k&quot;)
 abline(v=accs$k[which.max(accs$accuracy)], col=&quot;red&quot;)</code></pre>
 <p><img src="beersRMD_files/figure-html/Implement%20KNN-1.png" width="960" /></p>
 <pre class="r"><code>accs$k[which.max(accs$accuracy)]</code></pre>
-<pre><code>## [1] 17</code></pre>
+<pre><code>## [1] 26</code></pre>
 <pre class="r"><code>splitPerc = .70
 trainIndices = sample(1:dim(IPA_ALE)[1],round(splitPerc * dim(IPA_ALE)[1]))
 train = IPA_ALE[trainIndices,]
@@ -1775,35 +1778,35 @@ classification = knn(IPA_ALE[,c(3,4)],IPA_ALE[,c(3,4)],IPA_ALE$Type,prob = TRUE,
 table(classification,IPA_ALE$Type)</code></pre>
 <pre><code>##               
 ## classification ALE IPA
-##            ALE 918 150
-##            IPA 102 408</code></pre>
+##            ALE 920 148
+##            IPA 100 410</code></pre>
 <pre class="r"><code>confusionMatrix(table(classification,IPA_ALE$Type))</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##               
 ## classification ALE IPA
-##            ALE 918 150
-##            IPA 102 408
-##                                          
-##                Accuracy : 0.8403         
-##                  95% CI : (0.8213, 0.858)
-##     No Information Rate : 0.6464         
-##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
-##                                          
-##                   Kappa : 0.6437         
-##                                          
-##  Mcnemar&#39;s Test P-Value : 0.003069       
-##                                          
-##             Sensitivity : 0.9000         
-##             Specificity : 0.7312         
-##          Pos Pred Value : 0.8596         
-##          Neg Pred Value : 0.8000         
-##              Prevalence : 0.6464         
-##          Detection Rate : 0.5817         
-##    Detection Prevalence : 0.6768         
-##       Balanced Accuracy : 0.8156         
-##                                          
-##        &#39;Positive&#39; Class : ALE            
+##            ALE 920 148
+##            IPA 100 410
+##                                           
+##                Accuracy : 0.8428          
+##                  95% CI : (0.8239, 0.8605)
+##     No Information Rate : 0.6464          
+##     P-Value [Acc &gt; NIR] : &lt; 2e-16         
+##                                           
+##                   Kappa : 0.6494          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.00284         
+##                                           
+##             Sensitivity : 0.9020          
+##             Specificity : 0.7348          
+##          Pos Pred Value : 0.8614          
+##          Neg Pred Value : 0.8039          
+##              Prevalence : 0.6464          
+##          Detection Rate : 0.5830          
+##    Detection Prevalence : 0.6768          
+##       Balanced Accuracy : 0.8184          
+##                                           
+##        &#39;Positive&#39; Class : ALE             
 ## </code></pre>
 <p>#Additional Insight on Craft beer’s and breweries ## Observation : We found that the southern and western regions consume alcohol with higher bitterness and the northeast and northern regions prefer a less alcoholic content in their beer. The geographipal map of US shows the state groupings by regions.</p>
 <pre class="r"><code>map_data = map_data(&#39;state&#39;)
