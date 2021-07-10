@@ -4,7 +4,7 @@ navbar:
   left:
     - text: "Me"
       href: index.html
-    #- text: 'Abroad'
-    #  href: abroad.html
+    - text: 'Bio'
+      href: about.html
     - text: "Beers"
       href: beersRMD.html
